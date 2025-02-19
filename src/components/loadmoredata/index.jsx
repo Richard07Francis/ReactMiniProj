@@ -8,8 +8,11 @@ export default function LoadMoreData(){
     const [count, setCount] = useState(0);
     const [disableButton, setDisableButton] = useState(false);
 
+    let isFetching = false;
     async function fetchProducts(){
         try{
+            if(isFetching) return;
+            isFetching = true;
             setLoading(true);
             const response = await fetch(`https://dummyjson.com/products?limit=20&skip=${count===0?0:count*20}`);
             const data = await response.json();
@@ -18,6 +21,7 @@ export default function LoadMoreData(){
                 setProducts((prevData) => [...prevData, ...data.products]);
             }
             setLoading(false);
+            isFetching = false;
         } catch(e){
             console.error(e);
             setLoading(false);
