@@ -10,10 +10,7 @@ export default function MenuItem({ item }) {
             ...displayCurrentChildren,
             [getCurrentLabel]: !displayCurrentChildren[getCurrentLabel]
     });
-    }
-
-    console.log(displayCurrentChildren);
-    
+    }    
 
     return  <li>
                 <div  className="menu-item">
