@@ -9,9 +9,9 @@ export default function MenuItem({ item }) {
         setDisplayCurrentChildren({
             ...displayCurrentChildren,
             [getCurrentLabel]: !displayCurrentChildren[getCurrentLabel]
-    });
-    }    
-
+        });
+    }
+    
     return  <li>
                 <div  className="menu-item">
                     <p>{item.label}</p>
@@ -23,11 +23,12 @@ export default function MenuItem({ item }) {
                         </span> : null
                     }
                 </div>
-                
+                <div className={displayCurrentChildren[item.label] ? "show" : "hide"} >
                 {
-                    item.children && item.children && item.children.length > 0 && displayCurrentChildren[item.label]?
+                    item.children && item.children && item.children.length > 0?
                     <MenuList list={item.children} />
                     : null
                 }
+                </div>
             </li>
 }
