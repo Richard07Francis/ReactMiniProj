@@ -1,10 +1,10 @@
 import MenuItem from "./menuitem";
 
-export default function MenuList({ list=[], status={} }) {
+export default function MenuList({ list=[] }) {
     return (<ul className="menu-list-container">
         {
             list && list.length ?
-            list.map(listItem => <MenuItem item={listItem} status={status} />)
+            list.map(listItem => <MenuItem item={listItem} />)
             : null
         }
     </ul>
